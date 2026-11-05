@@ -68,13 +68,14 @@ const photos = {
   },
 };
 type StockPhoto = { src: string; alt: string; credit?: string; href?: string; fit?: "cover" | "contain" };
+type Service = { number: string; title: string; text: string; icon: string; photo: StockPhoto };
 
 function PhotoCredit({ photo }: { photo: StockPhoto }) {
   if (!photo.credit || !photo.href) return null;
   return <a className="photo-credit" href={photo.href} target="_blank" rel="noreferrer">Photo: {photo.credit} / Unsplash</a>;
 }
 
-const services = [
+const services: Service[] = [
   { number: "01", title: "Facebook Ads", text: "Reach potential customers with campaigns built around a specific business objective—not simply getting more views.", icon: "↗", photo: photos.serviceAds },
   { number: "02", title: "Social Media Handling", text: "Keep your online presence active, professional and relevant so customers have a reason to pay attention.", icon: "◌", photo: photos.serviceSocialMedia },
   { number: "03", title: "Website Design", text: "Create a professional online destination where customers can understand your business, products and next steps.", icon: "⌘", photo: photos.serviceWebsite },
